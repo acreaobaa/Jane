@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jane Khamidolla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f7f5f0;
+    --cream-dark: #ede9e1;
+    --ink: #1a1714;
+    --ink-mid: #4a4540;
+    --ink-light: #8a8580;
+    --violet: #5340c8;
+    --violet-light: #ede9ff;
+    --teal: #0f8c6e;
+    --teal-light: #e2f5ef;
+    --amber: #c4760a;
+    --amber-light: #fef3e0;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Instrument Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    border-bottom: 1px solid var(--cream-dark);
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--violet); }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.8125rem;
+    color: var(--ink-mid);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--violet); }
+  .nav-cta {
+    font-size: 0.8125rem;
+    padding: 7px 18px;
+    border: 1.5px solid var(--violet);
+    border-radius: 100px;
+    color: var(--violet);
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .nav-cta:hover { background: var(--violet); color: #fff; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 4rem;
+    align-items: center;
+    padding: 5rem 2.5rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .pulse {
+    width: 7px; height: 7px;
+    background: var(--teal);
+    border-radius: 50%;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--violet);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--ink-mid);
+    max-width: 480px;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 11px 24px;
+    background: var(--violet);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: #4230a8; transform: translateY(-1px); }
+  .btn-ghost {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 11px 24px;
+    background: transparent;
+    color: var(--ink-mid);
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1.5px solid var(--cream-dark);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
+
+  /* hero right side — world map dots */
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .world-card {
+    background: #fff;
+    border: 1px solid var(--cream-dark);
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+  .world-label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .globe-dots {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+  .location-pin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: default;
+  }
+  .pin-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--violet);
+    background: var(--violet-light);
+    transition: all 0.2s;
+  }
+  .location-pin:hover .pin-dot {
+    background: var(--violet);
+    transform: scale(1.3);
+  }
+  .pin-name {
+    font-size: 0.625rem;
+    color: var(--ink-light);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .stat-mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .stat-mini {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 0.875rem 1rem;
+  }
+  .stat-mini-num {
+    font-family: var(--serif);
+    font-size: 1.625rem;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .stat-mini-label {
+    font-size: 0.6875rem;
+    color: var(--ink-light);
+    line-height: 1.4;
+  }
+
+  /* scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.6875rem;
+    color: var(--ink-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 32px;
+    height: 1px;
+    background: var(--ink-light);
+    animation: scrollline 2s ease-in-out infinite;
+  }
+  @keyframes scrollline {
+    0%,100% { width: 32px; opacity: 1; }
+    50% { width: 16px; opacity: 0.4; }
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+  }
+  .section-full {
+    background: #fff;
+    border-top: 1px solid var(--cream-dark);
+    border-bottom: 1px solid var(--cream-dark);
+  }
+  .section-full > .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+  }
+
+  .section-label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 2.25rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+  }
+  .section-title em { font-style: italic; color: var(--violet); }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: #fff;
+    border: 1px solid var(--cream-dark);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--violet);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .project-card:hover { transform: translateY(-3px); border-color: #d0ccc8; }
+  .project-card:hover::before { transform: scaleX(1); }
+
+  .project-card.teal::before { background: var(--teal); }
+  .project-card.amber::before { background: var(--amber); }
+
+  .proj-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+  .tag-violet { background: var(--violet-light); color: var(--violet); }
+  .tag-teal { background: var(--teal-light); color: var(--teal); }
+  .tag-amber { background: var(--amber-light); color: var(--amber); }
+  .tag-gray { background: var(--cream); color: var(--ink-mid); }
+
+  .proj-title {
+    font-family: var(--serif);
+    font-size: 1.375rem;
+    margin-bottom: 0.625rem;
+    line-height: 1.25;
+  }
+  .proj-desc {
+    font-size: 0.875rem;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  .proj-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    border-top: 1px solid var(--cream-dark);
+    padding-top: 0.875rem;
+    margin-top: auto;
+  }
+  .proj-award {
+    font-weight: 500;
+    color: var(--amber);
+  }
+
+  /* featured project */
+  .project-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+  .project-card.featured::before { background: var(--violet-light); }
+  .project-card.featured .proj-title { color: #fff; }
+  .project-card.featured .proj-desc { color: rgba(255,255,255,0.65); }
+  .project-card.featured .proj-footer { border-color: rgba(255,255,255,0.12); }
+  .project-card.featured .proj-award { color: #f0c567; }
+  .project-card.featured .proj-footer { color: rgba(255,255,255,0.4); }
+
+  .featured-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .metric-row {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .metric {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    flex: 1;
+  }
+  .metric-val {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .metric-label {
+    font-size: 0.6875rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+  }
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tech-pill {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ── BETS ── */
+  .bets-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--cream-dark);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .bet-item {
+    padding: 1.75rem;
+    border-bottom: 1px solid var(--cream-dark);
+    border-right: 1px solid var(--cream-dark);
+    transition: background 0.2s;
+  }
+  .bet-item:nth-child(2n) { border-right: none; }
+  .bet-item:nth-last-child(-n+2) { border-bottom: none; }
+  .bet-item:hover { background: var(--cream); }
+  .bet-num {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    color: var(--ink-light);
+    margin-bottom: 0.75rem;
+  }
+  .bet-text {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 0.625rem;
+    font-weight: 500;
+  }
+  .bet-sub {
+    font-size: 0.8125rem;
+    color: var(--ink-light);
+    line-height: 1.55;
+    font-style: italic;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 1px;
+    background: var(--cream-dark);
+  }
+  .tl-item {
+    position: relative;
+    padding-left: 1.75rem;
+    padding-bottom: 2.5rem;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot {
+    position: absolute;
+    left: -2.375rem;
+    top: 6px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--cream-dark);
+    transition: all 0.2s;
+  }
+  .tl-item:hover .tl-dot {
+    background: var(--violet);
+    border-color: var(--violet);
+  }
+  .tl-year {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    color: var(--ink-light);
+    margin-bottom: 0.25rem;
+  }
+  .tl-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .tl-org {
+    font-size: 0.8125rem;
+    color: var(--violet);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .tl-desc {
+    font-size: 0.8125rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+
+  /* ── AWARDS ── */
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .award-card {
+    background: #fff;
+    border: 1px solid var(--cream-dark);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  .award-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.625rem;
+  }
+  .award-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+    line-height: 1.35;
+  }
+  .award-org {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    line-height: 1.4;
+  }
+
+  /* ── ASK ME ── */
+  .ask-section {
+    background: var(--ink);
+    color: #fff;
+    border-top: none;
+    border-bottom: none;
+  }
+  .ask-section .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .ask-left .section-label { color: rgba(255,255,255,0.35); }
+  .ask-title {
+    font-family: var(--serif);
+    font-size: 2.25rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  .ask-title em { font-style: italic; color: #a89fea; }
+  .ask-sub { font-size: 0.9375rem; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 1.5rem; }
+
+  .chat-window {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .chat-header {
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .chat-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; }
+  .chat-messages {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 200px;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+  .msg {
+    max-width: 85%;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+  .msg-user {
+    background: var(--violet);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+  .msg-ai {
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.85);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  .msg-typing {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 0.75rem 1rem;
+  }
+  .typing-dot {
+    width: 6px; height: 6px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 50%;
+    animation: typingbounce 1.2s ease-in-out infinite;
+  }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingbounce {
+    0%,100% { transform: translateY(0); opacity: 0.35; }
+    50% { transform: translateY(-4px); opacity: 0.9; }
+  }
+  .chat-input-row {
+    display: flex;
+    gap: 8px;
+    padding: 0.875rem 1.25rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .chat-input {
+    flex: 1;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 9px 14px;
+    font-size: 0.875rem;
+    color: #fff;
+    outline: none;
+    font-family: var(--sans);
+    transition: border-color 0.2s;
+  }
+  .chat-input::placeholder { color: rgba(255,255,255,0.3); }
+  .chat-input:focus { border-color: rgba(255,255,255,0.25); }
+  .chat-send {
+    padding: 9px 16px;
+    background: var(--violet);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.875rem;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .chat-send:hover { background: #4230a8; }
+  .chat-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .sample-questions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .sample-q {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px;
+    color: rgba(255,255,255,0.55);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .sample-q:hover {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--cream-dark);
+  }
+  .footer-left .footer-name {
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    margin-bottom: 4px;
+  }
+  .footer-left p { font-size: 0.8125rem; color: var(--ink-light); }
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .footer-links a {
+    font-size: 0.8125rem;
+    color: var(--ink-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--violet); }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 3rem; padding-top: 3rem; }
+    .hero-right { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .bets-container { grid-template-columns: 1fr; }
+    .awards-grid { grid-template-columns: 1fr 1fr; }
+    .ask-section .inner { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Jane<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#work">work</a></li>
+    <li><a href="#research">research</a></li>
+    <li><a href="#bets">bets</a></li>
+    <li><a href="#ask">ask me</a></li>
+  </ul>
+  <a href="mailto:khamidolla.ulzhan@gmail.com" class="nav-cta">say hello</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="pulse"></span>
+      UC Berkeley · Rise Fellow · Building in AI × Biology
+    </div>
+    <h1>Biology meets AI.<br>I build at the <em>intersection.</em></h1>
+    <p class="hero-sub">
+      Researcher, builder, and founder from Kazakhstan. I model epidemics, train classifiers on human behavior, and ship health AI products — sometimes all in the same semester.
+    </p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary">see my projects</a>
+      <a href="#bets" class="btn-ghost">my bets on AI →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="world-card">
+      <div class="world-label">researched across 5 countries</div>
+      <div class="globe-dots">
+        <div class="location-pin">
+          <div class="pin-dot"></div>
+          <div class="pin-name">Berkeley<br>USA</div>
+        </div>
+        <div class="location-pin">
+          <div class="pin-dot"></div>
+          <div class="pin-name">Oxford<br>UK</div>
+        </div>
+        <div class="location-pin">
+          <div class="pin-dot"></div>
+          <div class="pin-name">Istanbul<br>Turkey</div>
+        </div>
+        <div class="location-pin">
+          <div class="pin-dot"></div>
+          <div class="pin-name">Tartu<br>Estonia</div>
+        </div>
+        <div class="location-pin">
+          <div class="pin-dot"></div>
+          <div class="pin-name">Astana<br>Kazakhstan</div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-mini-grid">
+      <div class="stat-mini">
+        <div class="stat-mini-num">$4K+</div>
+        <div class="stat-mini-label">startup funding won in competitions</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">0.001%</div>
+        <div class="stat-mini-label">Rise Fellowship acceptance rate</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">0.78</div>
+        <div class="stat-mini-label">F1 score, NLP behavioral classifier</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-mini-num">500+</div>
+        <div class="stat-mini-label">Monte Carlo trials, epidemic models</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span class="scroll-line"></span>
+    scroll
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section-full" id="work">
+  <div class="inner">
+    <div class="section-label">selected work</div>
+    <div class="section-title">Things I've <em>built</em></div>
+
+    <div class="projects-grid">
+
+      <!-- Featured: PulmoAI -->
+      <div class="project-card featured fade-up">
+        <div>
+          <div class="proj-tag tag-violet" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">AI · Medical Imaging</div>
+          <div class="proj-title">PulmoAI</div>
+          <div class="proj-desc">Co-founded an ML-based pulmonary disease screening startup using chest X-ray data. Trained a convolutional neural network on open radiograph datasets, achieving ~88% sensitivity on held-out TB cases. Presented clinical implications at Astana Medical University MedTech Conference to physicians and academics.</div>
+          <div class="proj-footer">
+            <span>2023–2024 · Co-founder & technical lead</span>
+            <span class="proj-award">$1,000 seed · IT Hub Battle winner</span>
+          </div>
+        </div>
+        <div class="featured-right">
+          <div class="metric-row">
+            <div class="metric">
+              <div class="metric-val">~88%</div>
+              <div class="metric-label">sensitivity on held-out TB cases</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">CNN</div>
+              <div class="metric-label">architecture on chest X-ray data</div>
+            </div>
+          </div>
+          <div class="tech-pills">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">TensorFlow</span>
+            <span class="tech-pill">OpenCV</span>
+            <span class="tech-pill">NumPy</span>
+            <span class="tech-pill">Scikit-learn</span>
+            <span class="tech-pill">DICOM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUD App -->
+      <div class="project-card teal fade-up">
+        <div class="proj-tag tag-teal">HealthTech · Mobile</div>
+        <div class="proj-title">SUD Support App</div>
+        <div class="proj-desc">Led a 4-person team building a mobile health app for substance use disorder. CBT-based habit tracking, relapse-risk prediction via behavioral patterns, and anonymous peer support. Won 1st place at Amanat Tech Hackathon (250+ participants). Backed by Kazakhstan's Ministry of Labor & Social Protection.</div>
+        <div class="proj-footer">
+          <span>2023 · Team captain & lead developer</span>
+          <span class="proj-award">$3,000 · 1st place, 250+ teams</span>
+        </div>
+      </div>
+
+      <!-- NLP Pipeline -->
+      <div class="project-card fade-up">
+        <div class="proj-tag tag-violet">ML · NLP · Behavioral Science</div>
+        <div class="proj-title">Behavioral NLP Pipeline</div>
+        <div class="proj-desc">Building NLP classification pipelines on 3,000+ longitudinal survey observations at UC Berkeley in collaboration with Cornell. Achieved 0.78 F1 on held-out validation sets. Designing feature engineering frameworks for behavioral process data used in cross-institutional research on social psychology.</div>
+        <div class="proj-footer">
+          <span>2025–present · Berkeley URAP</span>
+          <span>Prof. Cameron Anderson × Cornell</span>
+        </div>
+      </div>
+
+      <!-- Epidemic Models -->
+      <div class="project-card amber fade-up">
+        <div class="proj-tag tag-amber">Computational Biology · Simulation</div>
+        <div class="proj-title">Epidemic Network Models</div>
+        <div class="proj-desc">Built novel hyperbolic latent-space contact networks with stochastic SIR simulations using Gillespie algorithms. Ran 500+ Monte Carlo trials to characterize outbreak variance. Extended agent-based modeling methods under ISTA PI Simon Rella. Research poster presented.</div>
+        <div class="proj-footer">
+          <span>2025 · ISTA × Nazarbayev University</span>
+          <span>Poster presented</span>
+        </div>
+      </div>
+
+      <!-- Geometric Formula -->
+      <div class="project-card fade-up">
+        <div class="proj-tag tag-gray">Mathematics · Algorithm</div>
+        <div class="proj-title">Geometric Optimization Formula</div>
+        <div class="proj-desc">At age 14, derived a novel formula for parameter-constrained area and volume optimization problems, with a computational implementation. Received a letter of appreciation from the Minister of Education of Kazakhstan. Won 1st place at Infomatrix Asia International STEM Competition.</div>
+        <div class="proj-footer">
+          <span>2020 · Age 14</span>
+          <span class="proj-award">Minister of Education recognition</span>
+        </div>
+      </div>
+
+      <!-- Bioinformatics -->
+      <div class="project-card teal fade-up">
+        <div class="proj-tag tag-teal">Bioinformatics · Conservation</div>
+        <div class="proj-title">Marine Species Genomic Analyzer</div>
+        <div class="proj-desc">Built genomic data analysis software for marine species conservation — automated pipeline for sequence alignment, BLAST search, phylogenetic tree construction, and species identification from environmental DNA samples. Won International Award at Infomatrix Asia.</div>
+        <div class="proj-footer">
+          <span>2022–2023 · Infomatrix Asia</span>
+          <span class="proj-award">International Award winner</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH TIMELINE -->
+<section id="research">
+  <div class="section-label">research journey</div>
+  <div class="section-title" style="margin-bottom:3rem">Five countries.<br><em>One thread.</em></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+    <div class="timeline">
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025 – present</div>
+        <div class="tl-title">ML Research Apprentice</div>
+        <div class="tl-org">UC Berkeley × Cornell University</div>
+        <div class="tl-desc">NLP classification on 3,000+ longitudinal behavioral observations. 0.78 F1 on held-out sets. Cross-institutional collaboration with Cornell on social psychology research.</div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025</div>
+        <div class="tl-title">Student Researcher — Complex Epidemics</div>
+        <div class="tl-org">ISTA × Nazarbayev University, Kazakhstan</div>
+        <div class="tl-desc">Stochastic SIR simulations, hyperbolic network models, 500+ Monte Carlo trials. Poster presented. Novel extensions to agent-based epidemic modeling.</div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024</div>
+        <div class="tl-title">Research Intern — Genome Instability Lab</div>
+        <div class="tl-org">Sabanci University, Istanbul, Turkey</div>
+        <div class="tl-desc">Genome rearrangements and phase variation in Bacteroides. 200+ bacterial samples. qPCR gene regulation, plasmid transformation, stress-induced genomic analysis.</div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023</div>
+        <div class="tl-title">Student Researcher — Unknown Protist Lab</div>
+        <div class="tl-org">University of Tartu, Estonia</div>
+        <div class="tl-desc">Identified 16 previously uncultured protist species via 18S rRNA sequencing from environmental water samples. DAPI fluorescence microscopy validation. Poster presented.</div>
+      </div>
+      <div class="tl-item fade-up">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2021</div>
+        <div class="tl-title">Young Explorers Field Researcher</div>
+        <div class="tl-org">National Geographic, North Kazakhstan</div>
+        <div class="tl-desc">Ecosystem and biodiversity field research at Kopa Lake. Co-authored report submitted to National Geographic mentors.</div>
+      </div>
+    </div>
+    <div>
+      <div class="awards-grid" id="awards" style="margin-bottom:2rem;">
+        <div class="award-card fade-up">
+          <div class="award-icon">◆</div>
+          <div class="award-title">Rise Fellow</div>
+          <div class="award-org">Schmidt Futures × Rhodes Trust · $500K · 0.001% acceptance · 2024–present</div>
+        </div>
+        <div class="award-card fade-up">
+          <div class="award-icon">◆</div>
+          <div class="award-title">Girls Who Code</div>
+          <div class="award-org">Summer Immersion Program × BlackRock · Full-stack engineering in fintech · 2022</div>
+        </div>
+        <div class="award-card fade-up">
+          <div class="award-icon">◆</div>
+          <div class="award-title">Strategy Consultant</div>
+          <div class="award-org">Manchester United Foundation · Advised CEO John Shiels on fan engagement strategy · 2025</div>
+        </div>
+        <div class="award-card fade-up">
+          <div class="award-icon">◇</div>
+          <div class="award-title">National Biology Olympiad</div>
+          <div class="award-org">Silver Medal · Kazakhstan</div>
+        </div>
+        <div class="award-card fade-up">
+          <div class="award-icon">◇</div>
+          <div class="award-title">Intl. Economics Olympiad</div>
+          <div class="award-org">3× Silver + Bronze · competing against national teams globally</div>
+        </div>
+        <div class="award-card fade-up">
+          <div class="award-icon">◇</div>
+          <div class="award-title">Infomatrix Asia</div>
+          <div class="award-org">3× International Award Winner · Mathematics, Bioinformatics, Algorithms</div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--cream-dark);border-radius:12px;padding:1.25rem;">
+        <div class="section-label" style="margin-bottom:0.75rem;">public speaking</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="display:flex;justify-content:space-between;align-items:start;gap:1rem;">
+            <div>
+              <div style="font-size:0.875rem;font-weight:600;">Oxford University</div>
+              <div style="font-size:0.8125rem;color:var(--ink-light);">Rise Residential Summit · Computational neuroscience</div>
+            </div>
+            <div style="font-size:0.75rem;color:var(--ink-light);white-space:nowrap;">Aug 2025</div>
+          </div>
+          <div style="height:1px;background:var(--cream-dark);"></div>
+          <div style="display:flex;justify-content:space-between;align-items:start;gap:1rem;">
+            <div>
+              <div style="font-size:0.875rem;font-weight:600;">Astana Medical University</div>
+              <div style="font-size:0.8125rem;color:var(--ink-light);">MedTech Conference · Clinical implications of PulmoAI</div>
+            </div>
+            <div style="font-size:0.75rem;color:var(--ink-light);white-space:nowrap;">Apr 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BETS -->
+<div class="section-full" id="bets">
+  <div class="inner">
+    <div class="section-label">things I believe</div>
+    <div class="section-title">Five bets on <em>AI × biology</em></div>
+    <div class="bets-container">
+      <div class="bet-item fade-up">
+        <div class="bet-num">01</div>
+        <div class="bet-text">The next breakthrough drugs won't be discovered in wet labs — they'll emerge from AI trained on genomic instability patterns no human researcher could trace across millions of samples.</div>
+        <div class="bet-sub">From my work on Bacteroides genome rearrangements at Sabanci University, Istanbul.</div>
+      </div>
+      <div class="bet-item fade-up">
+        <div class="bet-num">02</div>
+        <div class="bet-text">Epidemic modeling is about to be transformed — not by better transmission math, but by LLMs that synthesize real-time behavioral data about why people actually move, gather, and comply.</div>
+        <div class="bet-sub">From my hyperbolic network modeling work under ISTA's Simon Rella.</div>
+      </div>
+      <div class="bet-item fade-up">
+        <div class="bet-num">03</div>
+        <div class="bet-text">Central Asia and Eastern Europe are the most underserved AI markets on earth. Low-resource language models + broken health infrastructure = the highest-impact, most neglected opportunity in global health AI.</div>
+        <div class="bet-sub">I've seen this gap up close building PulmoAI in Kazakhstan.</div>
+      </div>
+      <div class="bet-item fade-up">
+        <div class="bet-num">04</div>
+        <div class="bet-text">Behavioral AI — models that understand the psychology behind choices, not just the choices themselves — is the missing layer in every mental health and addiction app that has ever failed to retain users.</div>
+        <div class="bet-sub">From my NLP work on 3,000+ longitudinal behavioral observations at Berkeley.</div>
+      </div>
+      <div class="bet-item fade-up" style="grid-column: span 2;">
+        <div class="bet-num">05</div>
+        <div class="bet-text">The researcher who can pipette and write a training loop is 10× more valuable than either alone. We're not training those people yet — and the gap between wet-lab intuition and computational power is where the biggest discoveries will happen in the next decade.</div>
+        <div class="bet-sub">That's the gap I'm deliberately building toward, one semester at a time.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ASK ME -->
+<div class="section-full ask-section" id="ask">
+  <div class="inner">
+    <div class="ask-left">
+      <div class="section-label">AI-powered</div>
+      <div class="ask-title">Ask me <em>anything</em></div>
+      <p class="ask-sub">I've built an AI version of myself trained on my research, projects, and ideas. Ask it about my work, what I'm building next, or why I think AI × biology is the most exciting space in tech right now.</p>
+      <div class="sample-questions">
+        <button class="sample-q" onclick="askQuestion('What is PulmoAI and how does it work?')">What is PulmoAI?</button>
+        <button class="sample-q" onclick="askQuestion('What are you building next?')">What are you building next?</button>
+        <button class="sample-q" onclick="askQuestion('Why does biology × AI matter so much to you?')">Why biology × AI?</button>
+        <button class="sample-q" onclick="askQuestion('Tell me about the Rise Fellowship')">The Rise Fellowship</button>
+      </div>
+    </div>
+    <div>
+      <div class="chat-window">
+        <div class="chat-header">
+          <span class="chat-dot"></span>
+          AI Jane · powered by Claude
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="msg msg-ai">Hi! I'm an AI version of Jane. Ask me about my research, projects, or what I'm building — I'm happy to share.</div>
+        </div>
+        <div class="chat-input-row">
+          <input class="chat-input" id="chat-input" type="text" placeholder="Ask me anything..." maxlength="300" />
+          <button class="chat-send" id="chat-send" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-name">Jane Khamidolla</div>
+    <p>UC Berkeley · Rise Fellow · khamidolla.ulzhan@gmail.com</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/jane-khamidolla" target="_blank">LinkedIn</a>
+    <a href="https://github.com" target="_blank">GitHub</a>
+    <a href="mailto:khamidolla.ulzhan@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+// Intersection Observer for fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// AI Chat
+const SYSTEM_PROMPT = `You are an AI version of Jane Khamidolla, answering questions on her personal website. You speak in first person as Jane. Be warm, intellectually engaged, and concise (2-4 sentences max per reply). Here is Jane's background:
+
+- UC Berkeley freshman (Class of 2029), double major: Molecular & Cellular Biology + Data Science, Minor: Bioengineering. GPA 3.72.
+- Rise Fellow (Schmidt Futures × Rhodes Trust) — 0.001% acceptance rate, lifetime professional support and $500K in educational funding. Fellows recognized by Forbes as most promising youth.
+- Co-founder of PulmoAI: ML-based pulmonary disease screening using chest X-rays. ~88% sensitivity on TB cases. $1,000 seed funding. Presented at Astana Medical University MedTech Conference.
+- Won 1st place ($3,000) at Amanat Tech Hackathon building a mobile health app for substance use disorder. Backed by Kazakhstan's Ministry of Labor.
+- Research at: UC Berkeley (NLP/ML, 0.78 F1 behavioral classifier), ISTA (epidemic network models, 500+ Monte Carlo trials), Sabanci University Istanbul (genome instability), University of Tartu Estonia (protist identification via 18S rRNA), National Geographic field research in Kazakhstan.
+- Speaker at Oxford University (Rise Residential Summit, 2025) and Astana Medical University (2024).
+- Strategy Consultant for Manchester United Foundation, advised CEO John Shiels.
+- Girls Who Code alumna (with BlackRock).
+- Won: National Biology Olympiad Silver (Kazakhstan), 3× Infomatrix Asia International Awards, 3× International Economics Olympiad medals.
+- At age 14, derived a novel geometric optimization formula, recognized by Kazakhstan's Minister of Education.
+- Skills: Python (NumPy, SciPy, Scikit-learn, Pandas), Java, C, R, MATLAB, SQL, Git, stochastic modeling, bioinformatics (BLAST, 18S rRNA, qPCR).
+- Trilingual: English, Kazakh, Russian.
+- From Kazakhstan, now at Berkeley, CA.
+- Core belief: The researcher who can do wet-lab AND write ML code is 10× more valuable than either alone. Central Asia is the most underserved AI market. Behavioral AI is the missing layer in health tech.`;
+
+async function callClaude(userMessage, conversationHistory) {
+  const messages = conversationHistory.map(m => ({
+    role: m.role,
+    content: m.content
+  }));
+  messages.push({ role: 'user', content: userMessage });
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      system: SYSTEM_PROMPT,
+      messages
+    })
+  });
+  const data = await response.json();
+  return data.content?.[0]?.text || 'Sorry, something went wrong.';
+}
+
+let conversationHistory = [];
+
+function addMessage(text, role) {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = `msg msg-${role === 'user' ? 'user' : 'ai'}`;
+  div.textContent = text;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addTyping() {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg msg-ai msg-typing';
+  div.id = 'typing-indicator';
+  div.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typing-indicator');
+  if (t) t.remove();
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const btn = document.getElementById('chat-send');
+  const text = input.value.trim();
+  if (!text) return;
+
+  input.value = '';
+  btn.disabled = true;
+  addMessage(text, 'user');
+  addTyping();
+
+  try {
+    const reply = await callClaude(text, conversationHistory);
+    removeTyping();
+    conversationHistory.push({ role: 'user', content: text });
+    conversationHistory.push({ role: 'assistant', content: reply });
+    addMessage(reply, 'ai');
+  } catch (e) {
+    removeTyping();
+    addMessage('Something went wrong — try again!', 'ai');
+  }
+  btn.disabled = false;
+}
+
+function askQuestion(q) {
+  document.getElementById('chat-input').value = q;
+  document.getElementById('ask').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  setTimeout(() => sendMessage(), 400);
+}
+
+document.getElementById('chat-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') sendMessage();
+});
+</script>
+</body>
+</html>
